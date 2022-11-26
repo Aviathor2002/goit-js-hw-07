@@ -29,13 +29,18 @@ function onGalleryOpenModal(evt) {
   const instance = basicLightbox.create(
     `<img src=${evt.target.dataset.source} />`,
     {
-      onShow: (instance) => {
+      onShow: () => {
         document.addEventListener("keydown", onEscapeClose);
+      },
+
+      onClose: () => {
+        document.removeEventListener("keydown", onEscapeClose);
       },
     }
   );
 
   instance.show();
+
   function onEscapeClose(e) {
     if (e.key === "Escape") {
       instance.close();
