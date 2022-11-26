@@ -26,6 +26,10 @@ gallery.addEventListener("click", onGalleryOpenModal);
 
 function onGalleryOpenModal(evt) {
   evt.preventDefault();
+  console.log(evt.target.nodeName);
+  if (evt.target.nodeName !== "IMG") {
+    return;
+  }
   const instance = basicLightbox.create(
     `<img src=${evt.target.dataset.source} />`,
     {

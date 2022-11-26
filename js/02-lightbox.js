@@ -15,29 +15,7 @@ const galleryMakeList = galleryItems
 
 gallery.insertAdjacentHTML("afterbegin", galleryMakeList);
 
-// gallery.addEventListener("click", onGalleryOpenModal);
-
-// function onGalleryOpenModal(evt) {
-//   evt.preventDefault();
-//   evt.preventDefault();
-//   const instance = basicLightbox.create(
-//     `<img src=${evt.target.dataset.source} />`,
-//     {
-//       onShow: () => {
-//         document.addEventListener("keydown", onEscapeClose);
-//       },
-
-//       onClose: () => {
-//         document.removeEventListener("keydown", onEscapeClose);
-//       },
-//     }
-//   );
-
-//   instance.show();
-
-//   function onEscapeClose(e) {
-//     if (e.key === "Escape") {
-//       instance.close();
-//     }
-//   }
-// }
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
